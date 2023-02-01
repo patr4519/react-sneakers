@@ -34,15 +34,26 @@ header {
 }
 
 .card {
-  border: 1px solid #F8F8F8;
+  border: 1px solid #dfd5d5;
   padding: 30px;
   width: 210px;
   border-radius: 40px;
+  margin: 30px;
+
+  span {
+    font-size: 13px;
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  b {
+    font-size: 13px;
+  }
 }
 
 .button {
   background-color: #ffffff;
-  border: 1px solid #f2f2f2;
+  border: 1px solid #cac2c2;
   box-sizing: border-box;
   border-radius: 8px;
   height: 32px;
