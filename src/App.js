@@ -6,12 +6,13 @@ function App() {
           <h2>Корзина</h2>
 
           <div className="cartItem d-flex align-center">
-            <img className="mr-20" width={70} height={70} src="/img/sneakers/1.jpg" alt="sneakers" />
+            <div style={{backgroundImage: 'url(/img/sneakers/1.jpg)'}} className="cartItemImg"></div>
+
             <div className="mr-20">
               <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
               <b>12 999 руб.</b>
             </div>
-            <img src="/img/btn-remove.svg" alt="remove" />
+            <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
           </div>
         </div>
       </div>
