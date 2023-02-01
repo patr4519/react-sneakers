@@ -116,11 +116,14 @@ header {
   }
 
   .items {
+    overflow: auto;
     height: 80%;
   }
 }
 
 .cartTotalBlock {
+  margin-top: 20px;
+
   ul {
     display: block;
     margin-bottom: 40px !important;
