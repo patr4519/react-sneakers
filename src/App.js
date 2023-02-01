@@ -3,6 +3,11 @@ import Card from "./components/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 
+arr = [
+  {name: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 12999},
+  {name: 'Мужские Кроссовки Nike Air Max 270', price: 15999}
+]
+
 function App() {
   return (
     <div className="wrapper clear">
@@ -19,7 +24,7 @@ function App() {
         </div>
 
         <div className="d-flex">
-          <Card />
+          
         </div>
 
       </div>
