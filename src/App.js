@@ -17,18 +17,21 @@ function App() {
             </div>
           </div>
 
-          <ul className="cartTotalBlock">
-            <li>
-              <span>Итого: </span>
-              <div></div>
-              <b>21 498 руб.</b>
-            </li>
-            <li>
-              <span>Налог 5%:</span>
-              <div></div>
-              <b>1 074 руб.</b>
-            </li>
-          </ul>
+          <div className="cartTotalBlock">
+            <ul>
+              <li>
+                <span>Итого: </span>
+                <div></div>
+                <b>21 498 руб.</b>
+              </li>
+              <li>
+                <span>Налог 5%:</span>
+                <div></div>
+                <b>1 074 руб.</b>
+              </li>
+            </ul>
+            <button>Оформить заказ</button>
+          </div>
         </div>
       </div>
 
