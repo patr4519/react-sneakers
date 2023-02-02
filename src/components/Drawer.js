@@ -1,6 +1,7 @@
-function Drawer() {
+function Drawer({closeCart}) {
+
     return (
-        <div style={{ display: 'none' }} className="overlay">
+        <div className="overlay">
             <div className="drawer">
                 <h2 className="mb-30">Корзина</h2>
 
@@ -12,7 +13,7 @@ function Drawer() {
                             <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
                             <b>12 999 руб.</b>
                         </div>
-                        <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
+                        <img onClick={closeCart} className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
                     </div>
                 </div>
 
