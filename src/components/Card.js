@@ -10,7 +10,7 @@ function Card({title, price, imageUrl}) {
     return (
         <div className="card">
             <div className="favorit">
-                <img src="/img/heart-unliked.svg" alt='Unliked' />
+                <img src="/img/heart-unliked.png" alt='Unliked' />
             </div>
             <img width={133} height={120} src={imageUrl} alt="" />
             <p>{title}</p>
