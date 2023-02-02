@@ -1,4 +1,5 @@
 function Card({title, price, imageUrl}) {
+
     return (
         <div className="card">
             <div className="favorit">
@@ -11,9 +12,7 @@ function Card({title, price, imageUrl}) {
                     <span>Цена:</span>
                     <b>{price} руб.</b>
                 </div>
-                <button className="button">
-                    <img width={11} height={11} src="/img/plus.svg" alt="plus" />
-                </button>
+                <img className="plus" src="/img/btn-plus.svg" alt="btn-plus" />
             </div>
         </div>
     );
