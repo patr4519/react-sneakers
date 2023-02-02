@@ -1,4 +1,11 @@
+import React from "react";
+
 function Card({title, price, imageUrl}) {
+    const [isAdded, setIdAdded] = React.useState(true);
+
+    const handlePlus = () => {
+        setIdAdded((prev) => !prev);
+    }
 
     return (
         <div className="card">
@@ -12,7 +19,7 @@ function Card({title, price, imageUrl}) {
                     <span>Цена:</span>
                     <b>{price} руб.</b>
                 </div>
-                <img className="plus" src="/img/btn-plus.svg" alt="btn-plus" />
+                <img onClick={handlePlus} className="plus" src={isAdded ? 'img/btn-plus.svg' : 'img/btn-checked.svg'} alt="btn-plus" />
             </div>
         </div>
     );
