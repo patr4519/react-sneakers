@@ -83,7 +83,7 @@ header {
 }
 
 .search-block {
-  
+
   border: 1px solid #cac2c2;
   border-radius: 10px;
 
@@ -129,6 +129,25 @@ header {
   .items {
     overflow: auto;
     height: 80%;
+  }
+
+  button {
+    width: 325px;
+    height: 55px;
+    background: #9DD558;
+    border-radius: 18px;
+    border: none;
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    &:hover {
+      background-color: #9dd558d5;
+      cursor: pointer;
+    }
   }
 }
 
