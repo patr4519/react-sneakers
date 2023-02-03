@@ -3,8 +3,6 @@ import Card from "./components/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 
-// https://63dbfd55c45e08a04352c66d.mockapi.io/items
-
 function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
@@ -18,7 +16,7 @@ function App() {
 
   return (
     <div className="wrapper clear">
-      {cartOpened && <Drawer items={items} closeCart={() => setCartOpened(false)} />}
+      {cartOpened && <Drawer closeCart={() => setCartOpened(false)} />}
 
       <Header openCart={() => setCartOpened(true)} />
 
