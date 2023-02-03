@@ -121,6 +121,15 @@ header {
   display: flex;
   flex-direction: column;
 
+  .drawerTop {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
   h2 {
     margin: 0;
     font-size: 24px;

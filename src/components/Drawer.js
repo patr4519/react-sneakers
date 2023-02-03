@@ -3,7 +3,10 @@ function Drawer({ closeCart, items = [] }) {
     return (
         <div className="overlay">
             <div className="drawer">
-                <h2 className="mb-30">Корзина</h2>
+                <div className="drawerTop">
+                    <h2 className="mb-30">Корзина</h2>
+                    <img onClick={closeCart} width={31} height={31} src="/img/close.svg" alt="close" />
+                </div>
 
                 <div className="items">
                     {
@@ -15,7 +18,7 @@ function Drawer({ closeCart, items = [] }) {
                                     <p className="mb-5">{obj.title}</p>
                                     <b>{obj.price} руб.</b>
                                 </div>
-                                <img onClick={closeCart} className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
+                                <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
                             </div>
                         ))
                     }

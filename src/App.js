@@ -18,12 +18,11 @@ function App() {
 
   return (
     <div className="wrapper clear">
-      {cartOpened && <Drawer closeCart={() => setCartOpened(false)} />}
+      {cartOpened && <Drawer items={items} closeCart={() => setCartOpened(false)} />}
 
       <Header openCart={() => setCartOpened(true)} />
 
       <div className="content p-40">
-
         <div className="d-flex align-center mb-40 justify-between">
           <h1>Все кроссовки</h1>
           <div className="search-block d-flex">
@@ -31,7 +30,6 @@ function App() {
             <input placeholder="Поиск..." />
           </div>
         </div>
-
         <div className="d-flex flex-wrap">
           {
             items.map((obj, index) => {
@@ -43,7 +41,6 @@ function App() {
             })
           }
         </div>
-
       </div>
     </div>
   );
