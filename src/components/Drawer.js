@@ -1,4 +1,4 @@
-function Drawer({closeCart}) {
+function Drawer({ closeCart, items = [] }) {
 
     return (
         <div className="overlay">
@@ -6,15 +6,19 @@ function Drawer({closeCart}) {
                 <h2 className="mb-30">Корзина</h2>
 
                 <div className="items">
-                    <div className="cartItem d-flex align-center mb-20">
-                        <div style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }} className="cartItemImg"></div>
+                    {
+                        items.map((obj) => (
+                            <div className="cartItem d-flex align-center mb-20">
+                                <div style={{ backgroundImage: `url(${obj.imageUrl})` }} className="cartItemImg"></div>
 
-                        <div className="mr-20 flex">
-                            <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-                            <b>12 999 руб.</b>
-                        </div>
-                        <img onClick={closeCart} className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
-                    </div>
+                                <div className="mr-20 flex">
+                                    <p className="mb-5">{obj.title}</p>
+                                    <b>{obj.price} руб.</b>
+                                </div>
+                                <img onClick={closeCart} className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
+                            </div>
+                        ))
+                    }
                 </div>
 
                 <div className="cartTotalBlock">

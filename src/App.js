@@ -7,6 +7,7 @@ import Drawer from "./components/Drawer";
 
 function App() {
   const [items, setItems] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState([]);
   const [cartOpened, setCartOpened] = React.useState(false);
 
   React.useEffect(() => {
