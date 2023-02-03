@@ -18,7 +18,7 @@ function App() {
     if(!cartItems.includes(obj)) {
       setCartItems((prev) => [...prev, obj])
     } else {
-      
+      setCartItems(cartItems.filter(item => item.title !== obj.title));
     }
   }
 
