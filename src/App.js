@@ -15,16 +15,20 @@ function App() {
   }, [])
 
   const addToCart = (obj) => {
-    if(!cartItems.includes(obj)) {
+    if (!cartItems.includes(obj)) {
       setCartItems((prev) => [...prev, obj])
     } else {
-      setCartItems(cartItems.filter(item => item.title !== obj.title));
+      deleteFromCart(obj);
     }
+  }
+
+  const deleteFromCart = (obj) => {
+    setCartItems(cartItems.filter(item => item.title !== obj.title));
   }
 
   return (
     <div className="wrapper clear">
-      {cartOpened && <Drawer cartItems={cartItems} closeCart={() => setCartOpened(false)} />}
+      {cartOpened && <Drawer deleteFromCart={deleteFromCart} cartItems={cartItems} closeCart={() => setCartOpened(false)} />}
 
       <Header openCart={() => setCartOpened(true)} />
 
