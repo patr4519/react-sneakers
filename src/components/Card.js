@@ -1,10 +1,11 @@
 import React from "react";
 
-function Card({title, price, imageUrl}) {
+function Card({title, price, imageUrl, obj, addToCart}) {
     const [isAdded, setIdAdded] = React.useState(true);
 
     const handlePlus = () => {
         setIdAdded((prev) => !prev);
+        addToCart(obj);
     }
 
     return (

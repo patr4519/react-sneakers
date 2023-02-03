@@ -14,9 +14,17 @@ function App() {
       .then(json => setItems(json))
   }, [])
 
+  const addToCart = (obj) => {
+    if(!cartItems.includes(obj)) {
+      setCartItems((prev) => [...prev, obj])
+    } else {
+      
+    }
+  }
+
   return (
     <div className="wrapper clear">
-      {cartOpened && <Drawer closeCart={() => setCartOpened(false)} />}
+      {cartOpened && <Drawer cartItems={cartItems} closeCart={() => setCartOpened(false)} />}
 
       <Header openCart={() => setCartOpened(true)} />
 
@@ -32,10 +40,12 @@ function App() {
           {
             items.map((obj, index) => {
               return <Card
+                obj={obj}
                 key={index}
                 title={obj.title}
                 price={obj.price}
-                imageUrl={obj.imageUrl} />
+                imageUrl={obj.imageUrl}
+                addToCart={addToCart} />
             })
           }
         </div>

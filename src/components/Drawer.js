@@ -1,4 +1,4 @@
-function Drawer({ closeCart, items = [] }) {
+function Drawer({ closeCart, cartItems }) {
 
     return (
         <div className="overlay">
@@ -10,8 +10,8 @@ function Drawer({ closeCart, items = [] }) {
 
                 <div className="items">
                     {
-                        items.map((obj) => (
-                            <div className="cartItem d-flex align-center mb-20">
+                        cartItems.map((obj, index) => (
+                            <div key={index} className="cartItem d-flex align-center mb-20">
                                 <div style={{ backgroundImage: `url(${obj.imageUrl})` }} className="cartItemImg"></div>
 
                                 <div className="mr-20 flex">
