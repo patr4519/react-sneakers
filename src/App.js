@@ -19,10 +19,14 @@ function App() {
       setCartItems(res.data);
     })
   }, [])
-  
+
   const addToCart = async (obj) => {
-    const {data} = await axios.post('https://63dbfd55c45e08a04352c66d.mockapi.io/cart', obj);
-    setCartItems((prev) => [...prev, data]);
+    try {
+      const { data } = await axios.post('https://63dbfd55c45e08a04352c66d.mockapi.io/cart', obj);
+      setCartItems((prev) => [...prev, data]);
+    } catch (error) {
+      alert('Не удалось добавить в корзину')
+    }
   }
 
   const onRemoveItem = (id) => {
