@@ -8,21 +8,27 @@ function Drawer({ closeCart, cartItems, onRemoveItem }) {
                     <img onClick={closeCart} width={31} height={31} src="/img/close.svg" alt="close" />
                 </div>
 
-                <div className="items">
-                    {
-                        cartItems.map((obj, index) => (
-                            <div key={index} className="cartItem d-flex align-center mb-20">
-                                <div style={{ backgroundImage: `url(${obj.imageUrl})` }} className="cartItemImg"></div>
+                {
+                    (cartItems.length > 0) ? (<div className="items">
+                        {
+                            cartItems.map((obj, index) => (
+                                <div key={index} className="cartItem d-flex align-center mb-20">
+                                    <div style={{ backgroundImage: `url(${obj.imageUrl})` }} className="cartItemImg"></div>
 
-                                <div className="mr-20 flex">
-                                    <p className="mb-5">{obj.title}</p>
-                                    <b>{obj.price} руб.</b>
+                                    <div className="mr-20 flex">
+                                        <p className="mb-5">{obj.title}</p>
+                                        <b>{obj.price} руб.</b>
+                                    </div>
+                                    <img onClick={() => onRemoveItem(obj.id)} className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
                                 </div>
-                                <img onClick={() => onRemoveItem(obj.id)} className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
-                            </div>
-                        ))
-                    }
-                </div>
+                            ))
+                        }
+                    </div>) : (<div className="emptyCart">
+                        <img src="/img/emptyCart.png" alt="emptyCart" />
+                        <h2>Корзина пустая</h2>
+                        <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
+                    </div>)
+                }
 
                 <div className="cartTotalBlock">
                     <ul>
@@ -40,11 +46,7 @@ function Drawer({ closeCart, cartItems, onRemoveItem }) {
                     <button>Оформить заказ</button>
                 </div>
 
-                <div className="emptyCart">
-                    <img src="/img/emptyCart.png" alt="emptyCart" />
-                    <h2>Корзина пустая</h2>
-                    <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
-                </div>
+
             </div>
         </div >
     );
