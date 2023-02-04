@@ -39,6 +39,12 @@ function Drawer({ closeCart, cartItems, onRemoveItem }) {
                     </ul>
                     <button>Оформить заказ</button>
                 </div>
+
+                <div className="emptyCart">
+                    <img src="/img/emptyCart.png" alt="emptyCart" />
+                    <h2>Корзина пустая</h2>
+                    <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
+                </div>
             </div>
         </div >
     );

@@ -103,9 +103,9 @@ header {
   .removeInput {
     position: absolute;
     right: 0;
-    margin-right: 5px;    
+    margin-right: 5px;
     margin-top: 11px;
-    width: 25px;  
+    width: 25px;
     height: 25px;
     cursor: pointer;
   }
@@ -167,6 +167,21 @@ header {
     &:hover {
       background-color: #9dd558d5;
       cursor: pointer;
+    }
+  }
+
+  .emptyCart {
+    width: 285px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 250px;
+    right: 60px;
+
+    img {
+      width: 120px;
+      height: 120px;
     }
   }
 }
