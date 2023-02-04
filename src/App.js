@@ -43,6 +43,7 @@ function App() {
           <div className="search-block d-flex">
             <img src="/img/search.svg" alt="Search" />
             <input value={searchValue} onChange={onChangeSearchValue} placeholder="Поиск..." />
+            {searchValue && <img onClick={() => setSearchValue('')} className="removeInput" src="/img/btn-remove.svg" alt="close"/>}
           </div>
         </div>
         <div className="d-flex flex-wrap">
