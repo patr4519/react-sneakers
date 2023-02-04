@@ -1,4 +1,4 @@
-function Drawer({ closeCart, cartItems, deleteFromCart }) {
+function Drawer({ closeCart, cartItems, onRemoveItem }) {
 
     return (
         <div className="overlay">
@@ -18,7 +18,7 @@ function Drawer({ closeCart, cartItems, deleteFromCart }) {
                                     <p className="mb-5">{obj.title}</p>
                                     <b>{obj.price} руб.</b>
                                 </div>
-                                <img onClick={() => deleteFromCart(obj)} className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
+                                <img onClick={() => onRemoveItem(obj.id)} className="removeBtn" src="/img/btn-remove.svg" alt="remove" />
                             </div>
                         ))
                     }

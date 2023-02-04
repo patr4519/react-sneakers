@@ -20,17 +20,13 @@ function App() {
   }, [])
 
   const addToCart = (obj) => {
-    // if (!cartItems.includes(obj)) {
-    //   setCartItems((prev) => [...prev, obj])
-    // } else {
-    //   deleteFromCart(obj);
-    // }
-    axios.post('https://63dbfd55c45e08a04352c66d.mockapi.io/cart', obj);
+    axios.post('https://63dbfd55c45e08a04352c66d.mockapi.io/cart', obj)
     setCartItems((prev) => [...prev, obj]);
   }
 
-  const deleteFromCart = (obj) => {
-    setCartItems(cartItems.filter(item => item.title !== obj.title));
+  const onRemoveItem = (id) => {
+    axios.delete(`https://63dbfd55c45e08a04352c66d.mockapi.io/cart/${id}`);
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
   }
 
   const onChangeSearchValue = (event) => {
@@ -39,7 +35,7 @@ function App() {
 
   return (
     <div className="wrapper clear">
-      {cartOpened && <Drawer deleteFromCart={deleteFromCart} cartItems={cartItems} closeCart={() => setCartOpened(false)} />}
+      {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} closeCart={() => setCartOpened(false)} />}
 
       <Header openCart={() => setCartOpened(true)} />
 
@@ -49,22 +45,22 @@ function App() {
           <div className="search-block d-flex">
             <img src="/img/search.svg" alt="Search" />
             <input value={searchValue} onChange={onChangeSearchValue} placeholder="Поиск..." />
-            {searchValue && <img onClick={() => setSearchValue('')} className="removeInput" src="/img/btn-remove.svg" alt="close"/>}
+            {searchValue && <img onClick={() => setSearchValue('')} className="removeInput" src="/img/btn-remove.svg" alt="close" />}
           </div>
         </div>
         <div className="d-flex flex-wrap">
           {
             items
-            .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
-            .map((obj, index) => {
-              return <Card
-                obj={obj}
-                key={index}
-                title={obj.title}
-                price={obj.price}
-                imageUrl={obj.imageUrl}
-                addToCart={addToCart} />
-            })
+              .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+              .map((obj, index) => {
+                return <Card
+                  obj={obj}
+                  key={index}
+                  title={obj.title}
+                  price={obj.price}
+                  imageUrl={obj.imageUrl}
+                  addToCart={addToCart} />
+              })
           }
         </div>
       </div>
