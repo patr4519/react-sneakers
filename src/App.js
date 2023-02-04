@@ -6,6 +6,7 @@ import Drawer from "./components/Drawer";
 function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState('');
   const [cartOpened, setCartOpened] = React.useState(false);
 
   React.useEffect(() => {
@@ -26,6 +27,10 @@ function App() {
     setCartItems(cartItems.filter(item => item.title !== obj.title));
   }
 
+  const onChangeSearchValue = (event) => {
+    setSearchValue(event.target.value);
+  }
+
   return (
     <div className="wrapper clear">
       {cartOpened && <Drawer deleteFromCart={deleteFromCart} cartItems={cartItems} closeCart={() => setCartOpened(false)} />}
@@ -34,10 +39,10 @@ function App() {
 
       <div className="content p-40">
         <div className="d-flex align-center mb-40 justify-between">
-          <h1>Все кроссовки</h1>
+          <h1>{searchValue ? `Поиск по запросу: ${searchValue}` : 'Все кроссовки'}</h1>
           <div className="search-block d-flex">
             <img src="/img/search.svg" alt="Search" />
-            <input placeholder="Поиск..." />
+            <input value={searchValue} onChange={onChangeSearchValue} placeholder="Поиск..." />
           </div>
         </div>
         <div className="d-flex flex-wrap">
