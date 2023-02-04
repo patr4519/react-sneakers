@@ -65,7 +65,8 @@ function App() {
                   title={obj.title}
                   price={obj.price}
                   imageUrl={obj.imageUrl}
-                  addToCart={addToCart} />
+                  addToCart={addToCart}
+                  onAddToFavorites={() => onAddToFavorites(obj)} />
               })
           }
         </div>
