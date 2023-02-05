@@ -29,9 +29,14 @@ function App() {
     }
   }
 
-  const onRemoveItem = (id) => {
-    axios.delete(`https://63dbfd55c45e08a04352c66d.mockapi.io/cart/${id}`);
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  const onRemoveItem = async (id) => {
+    try {
+      const { data } = await axios.delete(`https://63dbfd55c45e08a04352c66d.mockapi.io/cart/${id}`);
+      let retId = data.id;
+      setCartItems((prev) => prev.filter((item) => item.id !== retId));
+    } catch (error) {
+      alert('Не удалось удалить предмет из корзины');
+    }
   }
 
   const onChangeSearchValue = (event) => {
