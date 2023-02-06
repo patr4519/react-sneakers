@@ -20,20 +20,42 @@ function App() {
     })
   }, [])
 
-  const addToCart = async (obj) => {
+  // const addToCart = async (obj) => {
+  //   try {
+  //     const { data } = await axios.post('https://63dbfd55c45e08a04352c66d.mockapi.io/cart', obj);
+  //     setCartItems((prev) => [...prev, data]);
+  //   } catch (error) {
+  //     alert('Не удалось добавить в корзину')
+  //   }
+  // }
+
+  // const onRemoveItem = async (id) => {
+  //   try {
+  //     const { data } = await axios.delete(`https://63dbfd55c45e08a04352c66d.mockapi.io/cart/${id}`);
+  //     let retId = data.id;
+  //     setCartItems((prev) => prev.filter((item) => item.id !== retId));
+  //   } catch (error) {
+  //     alert('Не удалось удалить предмет из корзины');
+  //   }
+  // }
+
+  const addToCart = (obj) => {
     try {
-      const { data } = await axios.post('https://63dbfd55c45e08a04352c66d.mockapi.io/cart', obj);
-      setCartItems((prev) => [...prev, data]);
-    } catch (error) {
+      const findItem = cartItems.find((item) => item.id === obj.id);
+      if (findItem) {
+        setCartItems((prev) => prev.filter((item) => item.id !== obj.id))
+      } else {
+        setCartItems((prev) => [...prev, obj]);
+      }
+    } 
+    catch (error) {
       alert('Не удалось добавить в корзину')
     }
   }
 
-  const onRemoveItem = async (id) => {
+  const onRemoveItem = (id) => {
     try {
-      const { data } = await axios.delete(`https://63dbfd55c45e08a04352c66d.mockapi.io/cart/${id}`);
-      let retId = data.id;
-      setCartItems((prev) => prev.filter((item) => item.id !== retId));
+      setCartItems((prev) => prev.filter((item) => item.id !== id));
     } catch (error) {
       alert('Не удалось удалить предмет из корзины');
     }
